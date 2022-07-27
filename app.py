@@ -97,6 +97,7 @@ def year_end(x):
 @app.route('/predict', methods=['POST'])
 def predict():
      item_id=request.form['item_id']
+     print(item_id)
      calendar_data=pd.read_csv('data/calendar.csv')
      prices=pd.read_csv('data/sell_prices.csv')
      sales=pd.read_csv('data/sales_train_evaluation.csv')
