@@ -4,11 +4,10 @@ import os
 import joblib
 import pandas as pd
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 import multiprocessing as mp
+from lightgbm import LGBMRegressor
 import gc
+import seaborn
 import datetime
 import os
 from sklearn.preprocessing import LabelEncoder
@@ -148,11 +147,10 @@ def predict():
        df_final['year_end']=df_final['date'].apply(lambda x:year_end(x))
        df_final['date']
        df=df_final
-       df_final.fillna(0,inplace=True)
-       df.fillna(0,inplace=True)
        gc.collect()
        df.sort_values(['id','date'],inplace=True)
        df=df.pivot_table(index=['item_id','store_id'],columns='date',values='sales')
+       df.fillna(0,inplace=True)
        for aggregate in ['mean','std']:
          for shif in [28]:
             for r in [7,14,30,60,360]:
