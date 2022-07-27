@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<style type="text/css">
+       body {
+max-width: max-content;
+margin: auto;
+}
+    </style>    
+<body>
+
+<h2>M5 Forecasting :Walmart Product Item Predictions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Number of Items</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for key, value in data.items() %}
+   <tr>
+       <td> {{ key }} </td>
+       <td> {{ value }} </td>
+   </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+</body>
+</html>
